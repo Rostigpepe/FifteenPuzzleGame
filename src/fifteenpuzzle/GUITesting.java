@@ -12,6 +12,7 @@ public class GUITesting implements ActionListener {
     private JLabel jl;
     private JPanel jp;
     int test;
+    int babab;
 
     GUITesting(){
         jf = new JFrame();
