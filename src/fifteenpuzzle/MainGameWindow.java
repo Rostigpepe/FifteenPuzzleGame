@@ -2,28 +2,40 @@ package fifteenpuzzle;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Random;
+import java.util.ArrayList;
 
 public class MainGameWindow extends JFrame {
-    private int gridSize = 4;
-    Random rSeed = new Random();
 
-    public MainGameWindow(){
+
+    /**Method for the main game window itself, with all its buttons
+     * @param gridSize Desired game size, the game size = gridSize^2
+     */
+    public MainGameWindow(int gridSize){
+
+        //With this method we generate numbers and get them in a random sequence, with no duplicates
+        ArrayList<Integer> randomNums = UniqueRandomNumbers.generateUniqueRandomNumbers(gridSize * gridSize);
+
         JPanel puzzlePanel = new JPanel();
         puzzlePanel.setLayout(new GridLayout(gridSize, gridSize));
 
-        int count = 1;
+        //Variable to replace standard i since we're using nested for i loops
+        int count = 0;
+        //Nested for loops to create all the required buttons for the game
         for (int i = 0; i < gridSize; i++) {
             for (int j = 0; j < gridSize; j++) {
 
-                if(count == 16){
-                    count = 0;
+                //Taking the number at a specific spot in the list and assigning that to tempNum
+                int tempNum = randomNums.get(count);
+                //If the tempNum is 0, we want that button to be empty
+                if(tempNum == 0){
                     JButton button = new JButton("");
                     puzzlePanel.add(button);
-                    break;
+                    count++;
+                    continue;
                 }
 
-                JButton button = new JButton("" + count);
+                //If tempNum is anything other than 0, we'll make the button named that
+                JButton button = new JButton("" + randomNums.get(count));
                 count++;
                 puzzlePanel.add(button);
             }
