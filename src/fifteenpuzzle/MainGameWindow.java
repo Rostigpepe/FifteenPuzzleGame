@@ -15,7 +15,8 @@ public class MainGameWindow extends JFrame implements ActionListener {
     protected static JPanel puzzlePanel = new JPanel();
     protected static ArrayList<JButton> allButtons = new ArrayList<>();
     protected static JButton emptySpace = new JButton("");
-    protected  int gridSize = 0;
+    protected static JFrame gameFrame = new JFrame();
+    protected int gridSize = 0;
 
     /**Method for the main game window itself, with all its buttons
      * @param gSize Desired game size, the game size = gridSize^2
@@ -26,6 +27,10 @@ public class MainGameWindow extends JFrame implements ActionListener {
         //With this method we generate numbers and get them in a random sequence, with no duplicates
         ArrayList<Integer> randomNums = UniqueRandomNumbers.generateUniqueRandomNumbers(gridSize * gridSize);
         puzzlePanel.setLayout(new GridLayout(gridSize, gridSize));
+        puzzlePanel.setBackground(Color.DARK_GRAY);
+
+        GameMenu gm = new GameMenu();
+        gameFrame.setJMenuBar(gm.menuBar);
 
         //Variable to replace standard i since we're using nested for i loops
         int count = 0;
@@ -54,18 +59,18 @@ public class MainGameWindow extends JFrame implements ActionListener {
                 //If tempNum is anything other than 0, we'll make the button named that
                 JButton button = new JButton("" + randomNums.get(count));
                 button.addActionListener(this);
+                button.setFont(new Font("Arial", Font.BOLD, 32));
                 puzzlePanel.add(button);
                 allButtons.add(button);
                 count++;
             }
         }
-
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setContentPane(puzzlePanel);
-        setPreferredSize(new Dimension(700,700));
-        setLocationRelativeTo(null);
-        setVisible(true);
-        pack();
+        gameFrame.setContentPane(puzzlePanel);
+        gameFrame.setVisible(true);
+        gameFrame.setSize(700,700);
+        gameFrame.setTitle("15 Puzzle Game");
+        gameFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        gameFrame.setLocationRelativeTo(null);
     }
 
 
@@ -90,8 +95,7 @@ public class MainGameWindow extends JFrame implements ActionListener {
             GameAndFunctions.swap(clickedButton);
         }
         else{
-            //Add outputdialog
-            System.out.println("Cringe");
+            JOptionPane.showMessageDialog(null,"Click on a button next to the empty space");
         }
     }
 }

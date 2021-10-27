@@ -5,6 +5,8 @@ import java.util.Collections;
 
 public class UniqueRandomNumbers{
 
+    private UniqueRandomNumbers(){}
+
     /**Method that generates a specific set of numbers into a list, and then shuffles the numbers
      * This method fakes randomizing by creating all the desired numbers, and the simply shuffling them around
      * @param n Desired amount of numbers

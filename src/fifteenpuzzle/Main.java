@@ -1,10 +1,21 @@
 package fifteenpuzzle;
 
+import javax.swing.*;
+
 public class Main {
     public static void main(String[] args) {
+        boolean open = true;
+        String size = JOptionPane.showInputDialog("Choose size of the game");
 
-        //Implement size change functionality from the get go
-        new GameAndFunctions(4);
-
+        while(open){
+            try{
+                int gameSize = Integer.parseInt(size);
+                new GameAndFunctions(gameSize);
+                open = false;
+            }
+            catch(NumberFormatException ignored){
+                size = JOptionPane.showInputDialog("Only enter a number");
+            }
+        }
     }
 }
