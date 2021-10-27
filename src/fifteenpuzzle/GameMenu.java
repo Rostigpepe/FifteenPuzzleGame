@@ -15,19 +15,14 @@ public class GameMenu extends JPanel{
         JMenuItem changeSize = new JMenuItem("Reset");
         game.add(changeSize);
         changeSize.addActionListener(e -> {
-            String size = JOptionPane.showInputDialog("New board size");
-            int newSize = Integer.parseInt(size);
-
-            MainGameWindow.puzzlePanel.removeAll();
-            MainGameWindow.allButtons.clear();
-            new GameAndFunctions(newSize);
-            revalidate();
+            GameAndFunctions.startUpOptions();
         });
 
 
         JMenuItem exit = new JMenuItem("Exit");
         game.add(exit);
         exit.addActionListener(e -> System.exit(0));
+
     }
 
 }

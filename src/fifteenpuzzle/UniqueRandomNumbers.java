@@ -18,6 +18,15 @@ public class UniqueRandomNumbers{
         for (int i = 0; i < n; i++) {
             intList.add(i);
         }
+        //To showcase during presentation
+        /*for (int i = 0; i < n; i++) {
+            if(i == n - 1){
+                intList.add(0);
+                continue;
+            }
+            intList.add(i + 1);
+
+        }*/
         Collections.shuffle(intList);
         return intList;
     }

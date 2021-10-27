@@ -14,7 +14,7 @@ public class MainGameWindow extends JFrame implements ActionListener {
     //All of these needs to be outside the MainGameWindow method so that we can access them in other places as well
     protected static JPanel puzzlePanel = new JPanel();
     protected static ArrayList<JButton> allButtons = new ArrayList<>();
-    protected static JButton emptySpace = new JButton("");
+    protected static JButton emptySpace = new JButton("" + 0);
     protected static JFrame gameFrame = new JFrame();
     protected int gridSize = 0;
 
@@ -95,7 +95,7 @@ public class MainGameWindow extends JFrame implements ActionListener {
             GameAndFunctions.swap(clickedButton);
         }
         else{
-            JOptionPane.showMessageDialog(null,"Click on a button next to the empty space");
+            JOptionPane.showMessageDialog(null,"Invalid button");
         }
     }
 }
