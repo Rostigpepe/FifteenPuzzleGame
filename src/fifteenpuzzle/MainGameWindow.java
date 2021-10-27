@@ -90,6 +90,7 @@ public class MainGameWindow extends JFrame implements ActionListener {
             GameAndFunctions.swap(clickedButton);
         }
         else{
+            //Add outputdialog
             System.out.println("Cringe");
         }
     }

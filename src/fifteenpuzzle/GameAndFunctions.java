@@ -20,4 +20,6 @@ public class GameAndFunctions extends MainGameWindow {
         puzzlePanel.revalidate();
         Collections.swap(allButtons, allButtons.indexOf(emptySpace), allButtons.indexOf(clickedButton));
     }
+
+    //Implement win condition
 }

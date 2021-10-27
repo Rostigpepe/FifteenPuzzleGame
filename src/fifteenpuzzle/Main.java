@@ -3,7 +3,8 @@ package fifteenpuzzle;
 public class Main {
     public static void main(String[] args) {
 
-        GameAndFunctions mgw = new GameAndFunctions(4);
+        //Implement size change functionality from the get go
+        new GameAndFunctions(4);
 
     }
 }
