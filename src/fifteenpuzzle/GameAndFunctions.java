@@ -61,7 +61,7 @@ public class GameAndFunctions extends MainGameWindow {
      * Literally just a method that runs if the game has been won
      */
     public static void gameWon(){
-        JOptionPane.showMessageDialog(null,"Congratulaaaaatiooons! You Won!");
+        JOptionPane.showMessageDialog(null,"Congratulaaaaatioooons! You Won!");
         startUpOptions();
     }
 
